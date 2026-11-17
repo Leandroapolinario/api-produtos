@@ -59,7 +59,7 @@ jobs:
     # Na main: builda e publica no Docker Hub (Watchtower atualiza a EC2).
     env:
       PUBLICAR: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
-      IMAGEM: ${{ secrets.DOCKERHUB_USERNAME || 'local' }}/api-produtos
+      IMAGEM: ${{ secrets.DOCKERHUB_USERNAME || 'local' }}/api-produtos-01251069
     steps:
       - name: Checkout code
         uses: actions/checkout@v7

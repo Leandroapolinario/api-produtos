@@ -29,7 +29,7 @@ public class InfoController {
     @GetMapping({"/", "/api/info"})
     public Map<String, Object> info() {
         Map<String, Object> info = new LinkedHashMap<>();
-        info.put("aplicacao", "api-produtos");
+        info.put("aplicacao", "api-produtos-01251069");
         info.put("mensagem", mensagem);
         info.put("versao", versao);
         info.put("commit", commit);

@@ -10,8 +10,21 @@ GitHub (PR aprovado → main)
                                                                          │
                                          Watchtower (na EC2, verifica a cada 30s)
                                                                          │
-                                              EC2: container api-produtos atualizado
+                                              EC2: container api-produtos-01251069 atualizado
 ```
+
+## Identificação
+
+- **RA:** 01251069
+- **Nomes dos serviços (com RA):**
+
+| Serviço | Nome |
+|---|---|
+| Instância EC2 | `ec2-publica-01251069` |
+| Security Group | `sg-api-produtos-01251069` |
+| Imagem no Docker Hub | `<usuario>/api-produtos-01251069` |
+| Container da API | `api-produtos-01251069` |
+| Container do Watchtower | `watchtower-01251069` |
 
 ---
 
@@ -125,8 +138,8 @@ curl -fsSLO https://raw.githubusercontent.com/<seu-usuario>/api-produtos/main/in
 bash setup-ec2.sh <seu-usuario-dockerhub>
 ```
 O script executa os comandos do slide (`apt install docker.io`, `usermod -a -G docker`) e sobe dois containers:
-- `api-produtos` na porta 8080, com a label que o Watchtower monitora
-- `watchtower`, que consulta o Docker Hub a cada 30 s e recria a API quando a tag `latest` muda
+- `api-produtos-01251069` na porta 8080, com a label que o Watchtower monitora
+- `watchtower-01251069`, que consulta o Docker Hub a cada 30 s e recria a API quando a tag `latest` muda
 
 Teste: `http://<IP-PUBLICO>:8080/api/info` e `http://<IP-PUBLICO>:8080/actuator/health`.
 
@@ -151,10 +164,10 @@ Teste: `http://<IP-PUBLICO>:8080/api/info` e `http://<IP-PUBLICO>:8080/actuator/
 4. **Registry:** Docker Hub com a nova tag `1.0.<n>` e o `latest` atualizado. Print.
 5. **Watchtower:** na EC2, sem rodar nenhum comando de deploy:
    ```bash
-   docker logs watchtower --since 5m
-   # Found new <usuario>/api-produtos:latest image (sha256:...)
-   # Stopping /api-produtos ...
-   # Creating /api-produtos
+   docker logs watchtower-01251069 --since 5m
+   # Found new <usuario>/api-produtos-01251069atest image (sha256:...)
+   # Stopping /api-produtos-01251069 ...
+   # Creating /api-produtos-01251069
    docker ps
    ```
    Print do terminal.
