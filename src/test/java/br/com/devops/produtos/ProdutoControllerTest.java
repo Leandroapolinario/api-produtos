@@ -85,7 +85,7 @@ class ProdutoControllerTest {
     void deveExporInfoEHealth() throws Exception {
         mvc.perform(get("/api/info"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.aplicacao").value("api-produtos"))
+                .andExpect(jsonPath("$.aplicacao").value("api-produtos-01251069"))
                 .andExpect(jsonPath("$.versao").exists());
         mvc.perform(get("/actuator/health"))
                 .andExpect(status().isOk())
